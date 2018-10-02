@@ -14,9 +14,9 @@ node() {
         def mvnHome =  tool name: 'maven-3', type: 'maven'
         withSonarQubeEnv('sonar-6') { 
         sh "${mvnHome}/bin/mvn sonar:sonar"
+     }
+    
     }
-    
-    
     
     stage('nexus uploader'){
     
@@ -26,5 +26,5 @@ node() {
     groupId: 'dev', nexusUrl: '34.218.209.217:8081/nexus', nexusVersion: 'nexus2',
     protocol: 'http', repository: 'test_repo', version: '0.0.1'
     }
-   }
+   
 }
