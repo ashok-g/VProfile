@@ -1,4 +1,4 @@
-node('master') {
+node() {
     // some block
    stage('SCM Checkout'){
      git 'https://github.com/ashok-g/VProfile.git'
