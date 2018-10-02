@@ -1,7 +1,7 @@
 node('master') {
     // some block
    stage('SCM Checkout'){
-     git 'https://github.com/ashok-g/app1.git'
+     git 'https://github.com/ashok-g/VProfile'
    }
    stage('Compile-Package'){
       // Get maven home path
