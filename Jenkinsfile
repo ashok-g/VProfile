@@ -18,11 +18,7 @@ node() {
     
     stage('nexus uploader'){
     
-    nexusArtifactUploader artifacts: [[artifactId: 'myweb',
-    classifier: '', file: '/var/lib/jenkins/workspace/vpro-test/target/myweb-0.0.1.war',
-    type: 'war']], credentialsId: 'f3390c6a-2656-4419-a68d-ddc7ebd8a426',
-    groupId: 'dev', nexusUrl: '34.218.209.217:8081/nexus', nexusVersion: 'nexus2',
-    protocol: 'http', repository: 'test_repo', version: '0.0.1'
+   nexusArtifactUploader artifacts: [[artifactId: 'myweb', classifier: '', file: '/var/lib/jenkins/workspace/nexus_test/target/myweb-0.0.1.war', type: 'war']], credentialsId: '3ba1009c-230e-4ffc-9608-f02dc46a6b01', groupId: 'development01', nexusUrl: '35.196.10.23:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'sample_job', version: '0.0.1'
     }
    
 }
