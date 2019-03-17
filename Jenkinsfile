@@ -29,6 +29,9 @@ node() {
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
               
+          }
+    }
+              
     stage('nexus-push-artifact'){
     nexusArtifactUploader artifacts: [[artifactId: 'myapp', classifier: '',
      file: 'target/myapp-v1.war', type: 'war']], credentialsId: 'f3390c6a-2656-4419-a68d-ddc7ebd8a426',
@@ -44,8 +47,8 @@ node() {
         sh '''sudo systemctl stop docker '''
         sh '''     /etc/docker/daemon.json << {
                 "insecure-registries": [
-            "your-repo:8082",
-             "your-repo:8083"
+            "ashok3131:8082",
+             "ashok3131:8083"
               ],
               "disable-legacy-registry": true
             }'''
@@ -53,11 +56,11 @@ node() {
 
     sh " sudo systemctl restart docker"
 
-  sh "docker login -u admin -p admin123 your-repo:8082"
-  sh "docker login -u admin -p admin123 your-repo:8083"
+  sh "docker login -u ashok3131 -p ashok$3131 your-repo:8082"
+  sh "docker login -u ashok3131 -p ashok$3131 your-repo:8083"
 
-      sh " docker tag jenkins:latest your-repo:8083/jenkins:latest"
-     sh "docker push your-repo:8083/jenkins:latest"
+      sh " docker tag jenkins:latest ashok3131:8083/jenkins:latest"
+     sh "docker push ashok3131:8083/jenkins:latest"
 
         
     }
