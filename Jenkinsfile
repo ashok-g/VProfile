@@ -56,8 +56,8 @@ node() {
 
     sh " sudo systemctl restart docker"
 
-  sh "docker login -u ashok3131 -p ashok$3131 your-repo:8082"
-  sh "docker login -u ashok3131 -p ashok$3131 your-repo:8083"
+  sh "docker login -u ashok3131 -p "ashok$3131" ashok3131:8082"
+  sh "docker login -u ashok3131 -p ashok$3131 ashok3131:8083"
 
       sh " docker tag jenkins:latest ashok3131:8083/jenkins:latest"
      sh "docker push ashok3131:8083/jenkins:latest"
